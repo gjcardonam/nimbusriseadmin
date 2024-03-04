@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ListaEjercicios from './components/ListaEjercicios';
+import DetalleEjercicio from './components/DetalleEjercicio';
+import EditarEjercicio from './components/EditarEjercicio';
+import AgregarEjercicio from './components/AgregarEjercicio';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ListaEjercicios />} />
+        <Route path="/ejercicio/:uuid" element={<DetalleEjercicio />} />
+        <Route path="/nuevo-ejercicio" element={<AgregarEjercicio />} />
+        <Route path="/editar-ejercicio/:uuid" element={<EditarEjercicio />} />
+      </Routes>
+    </Router>
   );
 }
 
